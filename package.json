@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@neynar/nodejs-sdk": "^1.18.0",
+    "tsc": "^2.0.4",
     "vercel": "^34.0.0"
   }
 }
