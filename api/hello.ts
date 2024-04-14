@@ -1,28 +1,32 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
-import fetch from 'node-fetch'
+import { NeynarAPIClient, CastParamType } from "@neynar/nodejs-sdk";
 
-const api_key = String(process.env.NEYNAR_API_KEY);
+// make sure to set your NEYNAR_API_KEY .env
+const client = new NeynarAPIClient(String(process.env.NEYNAR_API_KEY));
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   const url = "https://warpcast.com/pnizo.eth/0x3321413d"
 
-  const options = {
-    method: 'GET',
-    headers: {accept: 'application/json', api_key: api_key}
-  };
+  const cast = await client.lookUpCastByHashOrWarpcastUrl(url, CastParamType.Url);
 
-  console.log(api_key);
+  console.log(cast);
   
-  const api_url = 'https://api.neynar.com/v2/farcaster/cast?identifier=' + encodeURI(url) + '&type=url';
+      const reactions = cast['cast']['reactions'];
+      const likes = reactions['likes'];
 
-  console.log(api_url);
-    
-  const response = await fetch(api_url, options);
-  console.log(response);
+      console.log(likes);
+      
+      var msg = '';
 
-  const data = await response.json();
-  console.log(data);
+      likes.forEach((like) => { 
+        msg += like['fname'] + ' ';
+        console.log(msg); // Access the 'fname' property correctly
+      })
+      
+     const data = {
+        message: msg.substring(0, 29)
+     }
  
   return res.json(data);
 }
