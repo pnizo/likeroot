@@ -1,4 +1,4 @@
-import { VercelRequest, VercelResponse } from '@vercel/node'
+import type { VercelRequest, VercelResponse } from '@vercel/node'
 import { NeynarAPIClient, CastParamType } from "@neynar/nodejs-sdk";
 
 // make sure to set your NEYNAR_API_KEY .env
