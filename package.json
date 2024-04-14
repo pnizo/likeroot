@@ -6,6 +6,7 @@
   "devDependencies": {
     "@types/node": "^20.12.7",
     "@vercel/node": "^3.0.26",
+    "type-fest": "^4.15.0",
     "typescript": "^5.4.5"
   },
   "dependencies": {
