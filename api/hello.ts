@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
-import fetch from "node-fetch"
+import fetch from 'node-fetch'
 
 const api_key = String(process.env.NEYNAR_API_KEY);
 
