@@ -12,6 +12,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     headers: {accept: 'application/json', api_key: api_key}
   };
 
+  console.log(api_key);
+  
   const api_url = 'https://api.neynar.com/v2/farcaster/cast?identifier=' + encodeURI(url) + '&type=url';
 
   console.log(api_url);
