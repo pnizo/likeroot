@@ -3,7 +3,7 @@
   "license": "MIT",
   "private": true,
   "name": "liked",
-  "type": "module",
+  "type": "commonjs",
   "devDependencies": {
     "@types/node": "^18.17.0",
     "@vercel/node": "^2.9.6",
