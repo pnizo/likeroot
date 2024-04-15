@@ -5,16 +5,16 @@ import { NeynarAPIClient, CastParamType } from "@neynar/nodejs-sdk";
 const client = new NeynarAPIClient(String(process.env.NEYNAR_API_KEY));
 
 const ADD_URL = "https://warpcast.com/~/add-cast-action?url=https%3A%2F%2Flikeroot-git-main-pnizos-projects.vercel.app%2Fapi%2Facttest";
-//const ADD_URL = "https://warpcast.com/~/add-cast-action?postUrl="https%3A%2F%2Fcastactions.xyz%2Fremind&name=Remind%20me%20in%2010%20days+"&actionType=post&icon=heart"
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
     console.log(ADD_URL);
+    console.log(req);
 
     if (req.method === 'GET') {
         const data = {
-            name: "hello",
-            icon: "heart",
-            description: "test action",
+            name: "Like Saver",
+            icon: "Shield",
+            description: "Check to see if you have \"Liked\" this account today",
             aboutUrl: "https://x.com/pnizo",
             action: {
               type: "post",
