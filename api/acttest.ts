@@ -34,7 +34,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
         const cast = await client.lookUpCastByHashOrWarpcastUrl(hash, CastParamType.Hash);
 
-        //console.log(cast);
+        console.log(cast);
     
         const reactions = cast['cast']['reactions'];
         const likes = reactions['likes'];
