@@ -9,7 +9,7 @@ const ADD_URL = "https://warpcast.com/~/add-cast-action?url=https%3A%2F%2Flikero
 export default async function handler(req: VercelRequest, res: VercelResponse) {
     console.log(ADD_URL);
     const body = { req };
-    console.log(body);
+    console.log(body['cast']);
 
     if (req.method === 'GET') {
         const data = {
@@ -33,14 +33,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     
         const reactions = cast['cast']['reactions'];
         const likes = reactions['likes'];
-
-        console.log(likes);
         
         var msg = '';
 
         likes.forEach((like) => { 
             msg += like['fname'] + ' ';
-            console.log(msg); // Access the 'fname' property correctly
         })
         
         const data = {
