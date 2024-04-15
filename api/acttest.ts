@@ -8,7 +8,8 @@ const ADD_URL = "https://warpcast.com/~/add-cast-action?url=https%3A%2F%2Flikero
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
     console.log(ADD_URL);
-    console.log(req);
+    const body = { req };
+    console.log(body);
 
     if (req.method === 'GET') {
         const data = {
