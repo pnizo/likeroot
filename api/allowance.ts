@@ -36,6 +36,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
         const degen = async () => {
             try {
+                console.log(query_url);
                 const response = await axios.get(query_url);
                 console.log(response);
             } catch (error) {
