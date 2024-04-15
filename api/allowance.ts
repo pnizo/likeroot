@@ -35,15 +35,22 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         
         const axios = require('axios');
 
+        var msg = '';
+
         await axios
             .get(query_url)
             .then((response) => {
-                console.log(response);
+                console.log(response.data);
+                const dat = response.data['allowance'];
+                msg = 'Allowance: ' + dat['remaining_allowance'] + '/' + dat['tip_allowance'] + ' DEGEN';
             })
-            .catch((err) => console.log(err));
+            .catch((err) => {
+                console.log(err);
+                msg = 'error: something went wrong';
+            });
         
         const data = {
-            message: 'hogehoge'
+            message: msg
         }
     
         return res.json(data);
