@@ -8,7 +8,7 @@ const ADD_URL = "https://warpcast.com/~/add-cast-action?url=https%3A%2F%2Flikero
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
     console.log(ADD_URL);
-    const body = await req['body'];
+    const body = await req['body']['untrustedData'];
     console.log(body);
 
     if (req.method === 'GET') {
@@ -26,6 +26,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     }
     else {
         const url = "https://warpcast.com/pnizo.eth/0x3321413d"
+        // const hash = body['untrustedData']['messageHash'];
+        // const fid = body['untrustedData']['fid'];
+
+        // console.log('Hash: ' + hash);
+        // console.log('Fid: ' + fid);
 
         const cast = await client.lookUpCastByHashOrWarpcastUrl(url, CastParamType.Url);
 
