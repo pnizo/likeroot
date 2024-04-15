@@ -31,12 +31,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         const hash = castId['hash'];
 
         const query_url = ENDPOINT + fid;
+        console.log(query_url);
         
         const axios = require('axios');
 
         const degen = async () => {
             try {
-                console.log(query_url);
                 const response = await axios.get(query_url);
                 console.log(response);
             } catch (error) {
