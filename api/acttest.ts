@@ -7,9 +7,9 @@ const client = new NeynarAPIClient(String(process.env.NEYNAR_API_KEY));
 const ADD_URL = "https://warpcast.com/~/add-cast-action?url=https%3A%2F%2Flikeroot-git-main-pnizos-projects.vercel.app%2Fapi%2Facttest";
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
-    console.log(ADD_URL);
-    const body = await req['body']['untrustedData'];
-    console.log(body);
+
+
+
 
     if (req.method === 'GET') {
         const data = {
@@ -25,14 +25,14 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           return res.json(data);
     }
     else {
-        const url = "https://warpcast.com/pnizo.eth/0x3321413d"
-        // const hash = body['untrustedData']['messageHash'];
-        // const fid = body['untrustedData']['fid'];
+        //const url = "https://warpcast.com/pnizo.eth/0x3321413d"
 
-        // console.log('Hash: ' + hash);
-        // console.log('Fid: ' + fid);
+        const body = await req['body']['untrustedData'];
+        const castId = body['castId']
+        const fid = castId['fid'];
+        const hash = castId['hash'];
 
-        const cast = await client.lookUpCastByHashOrWarpcastUrl(url, CastParamType.Url);
+        const cast = await client.lookUpCastByHashOrWarpcastUrl(hash, CastParamType.Hash);
 
         //console.log(cast);
     
