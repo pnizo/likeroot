@@ -5,10 +5,8 @@ import { NeynarAPIClient, CastParamType } from "@neynar/nodejs-sdk";
 const client = new NeynarAPIClient(String(process.env.NEYNAR_API_KEY));
 
 //const ADD_URL = "https://warpcast.com/~/add-cast-action?url=https%3A%2F%2Flikeroot-git-main-pnizos-projects.vercel.app%2Fapi%2Fham";
-const ADD_URL = "https://warpcast.com/~/add-cast-action?url=https%3A%2F%2Fstaging-chi-nine.vercel.app%2Fapi%2Fham";
+const ADD_URL = "https://warpcast.com/~/add-cast-action?url=https%3A%2F%2Flikeroot-git-staging-pnizos-projects.vercel.app%2Fapi%2Fham";
 const ENDPOINT = "https://farcaster.dep.dev/lp/tips/:"
-
-https://staging-chi-nine.vercel.app/
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
 
