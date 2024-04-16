@@ -13,7 +13,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     if (req.method === 'GET') {
         const data = {
-            name: "HAM check",
+            name: "Realtime DEGEN",
             icon: "ruby",
             description: "Check DEGEN allowance of the person who casted",
             aboutUrl: "https://warpcast.com/pnizo.eth",
