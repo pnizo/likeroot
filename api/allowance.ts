@@ -5,7 +5,7 @@ import { NeynarAPIClient, CastParamType } from "@neynar/nodejs-sdk";
 const client = new NeynarAPIClient(String(process.env.NEYNAR_API_KEY));
 
 const ADD_URL = "https://warpcast.com/~/add-cast-action?url=https%3A%2F%2Flikeroot-git-main-pnizos-projects.vercel.app%2Fapi%2Fallowance";
-const ENDPOINT = "https://degentipme-3f9959094869.herokuapp.com/api/get_allowance?fid="
+const ENDPOINT = "https://www.degentip.me/api/get_allowance?fid="
 
 
 

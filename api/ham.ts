@@ -4,17 +4,19 @@ import { NeynarAPIClient, CastParamType } from "@neynar/nodejs-sdk";
 // make sure to set your NEYNAR_API_KEY .env
 const client = new NeynarAPIClient(String(process.env.NEYNAR_API_KEY));
 
-const ADD_URL = "https://warpcast.com/~/add-cast-action?url=https%3A%2F%2Flikeroot-git-main-pnizos-projects.vercel.app%2Fapi%2Fallowance";
+//const ADD_URL = "https://warpcast.com/~/add-cast-action?url=https%3A%2F%2Flikeroot-git-main-pnizos-projects.vercel.app%2Fapi%2Fham";
+const ADD_URL = "https://warpcast.com/~/add-cast-action?url=https%3A%2F%2Fstaging-chi-nine.vercel.app%2Fapi%2Fham";
+const ENDPOINT = "https://farcaster.dep.dev/lp/tips/:"
 
-
+https://staging-chi-nine.vercel.app/
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     if (req.method === 'GET') {
         const data = {
-            name: "Realtime DEGEN",
-            icon: "ruby",
-            description: "Check DEGEN allowance of the person who casted",
+            name: "HAM allowance",
+            icon: "meter",
+            description: "Check HAM allowance of the person who casted",
             aboutUrl: "https://warpcast.com/pnizo.eth",
             action: {
               type: "post",
@@ -41,7 +43,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             .then((response) => {
                 console.log(response.data);
                 const dat = response.data['allowance'];
-                msg = 'Allowance: ' + dat['remaining_allowance'] + '/' + dat['tip_allowance'] + ' DEGEN';
+                msg = 'Allowance: ' + dat['remaining_allowance'] + '/' + dat['tip_allowance'] + ' HAM';
             })
             .catch((err) => {
                 console.log(err);
