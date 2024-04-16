@@ -4,18 +4,16 @@ import { NeynarAPIClient, CastParamType } from "@neynar/nodejs-sdk";
 // make sure to set your NEYNAR_API_KEY .env
 const client = new NeynarAPIClient(String(process.env.NEYNAR_API_KEY));
 
-const ADD_URL = "https://warpcast.com/~/add-cast-action?url=https%3A%2F%2Flikeroot-git-main-pnizos-projects.vercel.app%2Fapi%2Fallowance";
-//const ENDPOINT = "https://degentipme-3f9959094869.herokuapp.com/api/get_allowance?fid="
-
-
+const ADD_URL = "https://warpcast.com/~/add-cast-action?url=https%3A%2F%2Flikeroot-git-main-pnizos-projects.vercel.app%2Fapi%2Fham";
+const ENDPOINT = "https://farcaster.dep.dev/lp/tips/:"
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     if (req.method === 'GET') {
         const data = {
-            name: "Realtime DEGEN",
-            icon: "ruby",
-            description: "Check DEGEN allowance of the person who casted",
+            name: "Ham Check",
+            icon: "meter",
+            description: "Check HAM allowance of the person who casted",
             aboutUrl: "https://warpcast.com/pnizo.eth",
             action: {
               type: "post",
