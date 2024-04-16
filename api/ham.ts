@@ -5,7 +5,7 @@ import { NeynarAPIClient, CastParamType } from "@neynar/nodejs-sdk";
 const client = new NeynarAPIClient(String(process.env.NEYNAR_API_KEY));
 
 const ADD_URL = "https://warpcast.com/~/add-cast-action?url=https%3A%2F%2Flikeroot-git-main-pnizos-projects.vercel.app%2Fapi%2Fham";
-const ENDPOINT = "https://farcaster.dep.dev/lp/tips/:"
+const ENDPOINT = "https://farcaster.dep.dev/lp/tips/"
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
 
@@ -39,8 +39,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             .get(query_url)
             .then((response) => {
                 console.log(response.data);
-                const dat = response.data['allowance'];
-                msg = 'Allowance: ' + dat['remaining_allowance'] + '/' + dat['tip_allowance'] + ' DEGEN';
+                const allow = Math.floor(response.data['allowance']);
+                const used = Math.ceil(response.data['used']);
+                const remain = String(allow - used);
+                msg = 'Allowance: ' + remain + '/' + String(allow) + ' HAM';
             })
             .catch((err) => {
                 console.log(err);
