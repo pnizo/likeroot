@@ -67,7 +67,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             });
         
         const data = {
-            message: msg
+            message: deg_msg + ' ' + ham_msg
         }
     
         return res.json(data);
