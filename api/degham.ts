@@ -13,7 +13,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     if (req.method === 'GET') {
         const data = {
             name: "RT 🎩🍖 Checker",
-            icon: "meter",
+            icon: "smiley",
             description: "Check HAM allowance of the person who casted",
             aboutUrl: "https://warpcast.com/pnizo.eth",
             action: {
