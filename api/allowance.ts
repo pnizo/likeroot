@@ -11,7 +11,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     if (req.method === 'GET') {
         const data = {
-            name: "Realtime DEGEN",
+            name: "RT DEGEN Checker",
             icon: "ruby",
             description: "Check DEGEN allowance of the person who casted",
             aboutUrl: "https://warpcast.com/pnizo.eth",
@@ -29,7 +29,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         const hash = castId['hash'];
 
         const query_url = ENDPOINT + fid;
-        console.log(query_url);
         
         const axios = require('axios');
 
