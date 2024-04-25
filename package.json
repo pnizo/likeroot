@@ -12,6 +12,7 @@
   "dependencies": {
     "@neynar/nodejs-sdk": "^1.18.0",
     "axios": "^1.6.8",
+    "pip3": "^420.911.69",
     "pnpm": "^8.15.7",
     "vercel": "^34.0.0"
   }
