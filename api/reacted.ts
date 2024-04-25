@@ -22,13 +22,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     else {
 
         const body = await req['body']['untrustedData'];
-        //console.log(JSON.stringify(body));
+        const fid = body['fid'];
+        const target_fid = body['castId']['fid'];
         
         const axios = require('axios');
 
         var msg = '';
-        var fid = body['fid'];
-        var target_fid = body['castId']['fid'];
 
         const header = {
             'X-Dune-API-Key': process.env.DUNE_API_KEY,
@@ -65,8 +64,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                 const res = await axios.get(RESULT_ENDPOINT + '/' + exec_id + '/results', {headers: header, data: {"limit": 1}});
                 state = res.data['state'];
                 if (state === 'QUERY_STATE_COMPLETED') {
-                    console.log(res.data);
-                    count = res.data['result']['rows'][0]['row_count'];
+                    count = res.data['result']['rows'][0]['reaction_count'];
                 }
     
             } catch(err) {
