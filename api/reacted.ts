@@ -22,7 +22,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     else {
 
         const body = await req['body'];
-        console.log(JSON.stringify(body));
+        //console.log(JSON.stringify(body));
         
         const axios = require('axios');
 
@@ -45,6 +45,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
         try {
             const res = await axios.post(EXEC_ENDPOINT, exec_body, {headers: header});
+            console.log(res.data);
             exec_id = res.data['execution_id'];
         } catch(err) {
             console.log(err);
