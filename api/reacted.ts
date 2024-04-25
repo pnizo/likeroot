@@ -40,6 +40,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                 "target_fid": target_fid,
             }
         };
+        console.log(exec_body);
 
         var exec_id = '';
 
