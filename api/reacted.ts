@@ -47,13 +47,14 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         try {
             const res = await axios.post(EXEC_ENDPOINT, exec_body, {headers: header});
             //console.log(res.data);
+            console.log('Dune execution id: ' + res.data['execution_id']);
             exec_id = res.data['execution_id'];
         } catch(err) {
             console.log(err);
-            msg = 'HTTP POST error';
+            return res.json({message: 'HTTP POST error'});
         };
 
-        console.log(RESULT_ENDPOINT + '/' + exec_id + '/results');
+        //console.log(RESULT_ENDPOINT + '/' + exec_id + '/results');
 
         var count = 0;
         var state = 'QUERY_STATE_PENDING';
@@ -61,11 +62,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         while (state !== 'QUERY_STATE_COMPLETED') {
             await mySleep(1000);
             try {
-                const res = await axios.get(RESULT_ENDPOINT + '/' + exec_id + '/results', {headers: header, data: {}});
+                const res = await axios.get(RESULT_ENDPOINT + '/' + exec_id + '/results', {headers: header, data: {"limit": 1}});
                 state = res.data['state'];
                 if (state === 'QUERY_STATE_COMPLETED') {
                     console.log(res.data);
-                    count = res.data['result']['metadata']['row_count'];
+                    count = res.data['result']['rows'][0]['row_count'];
                 }
     
             } catch(err) {
