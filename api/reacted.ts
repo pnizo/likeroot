@@ -20,11 +20,14 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           return res.json(data);
     }
     else {
-
+/*
         const body = await req['body']['untrustedData'];
         const fid = body['fid'];
         const target_fid = body['castId']['fid'];
-        
+*/
+        const fid = "473738";
+        const target_fid = "396892";
+
         const axios = require('axios');
 
         var msg = '';
@@ -74,6 +77,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         }
 
         msg = '# of Reaction: ' + String(count);
+        console.log(msg);
      
         const data = {
             message: msg
