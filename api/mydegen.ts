@@ -35,7 +35,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             .then((response) => {
                 console.log(response.data);
                 const dat = response.data['allowance'];
-                msg = '🎩: ' + dat['remaining_allowance'] + '/' + dat['tip_allowance'] + 
+                msg = '👛: ' + dat['remaining_allowance'] + '/' + dat['tip_allowance'] + 
                 ' Rank: ' + dat['user_rank'];
             })
             .catch((err) => {
