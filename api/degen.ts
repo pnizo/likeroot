@@ -7,8 +7,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     if (req.method === 'GET') {
         const data = {
-            name: "Real-Time DEGEN Checker",
-            icon: "ruby",
+            name: "DEGEN Checker",
+            icon: "eye",
             description: "Real-Time DEGEN checker",
             aboutUrl: "https://warpcast.com/pnizo.eth",
             action: {
