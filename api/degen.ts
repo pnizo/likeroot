@@ -33,6 +33,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         let caster_degen = '-1';
         let caster_allowance = '-1';
         let caster_rank = '-1';
+        let caster_name = 'N/A';
 
 
         await axios
@@ -43,6 +44,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                 caster_degen = String(dat['remaining_allowance']);
                 caster_allowance = String(dat['tip_allowance']);
                 caster_rank = String(dat['user_rank']);
+                caster_name = dat['display_name'];
             })
             .catch((err) => {
                 console.log(err);
@@ -53,6 +55,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         let my_degen = '-1';
         let my_allowance = '-1';
         let my_rank = '-1';
+        let my_name = 'N/A';
 
         await axios
         .get(my_query_url)
@@ -62,13 +65,14 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             my_degen = String(dat['remaining_allowance']);
             my_allowance = String(dat['tip_allowance']);
             my_rank = String(dat['user_rank']);
+            my_name = dat['display_name'];
         })
         .catch((err) => {
             console.log(err);
             return res.json({message: 'error: something went wrong'});
         });    
 
-        const frame_url = FRAME_URL + '?caster_degen=' + caster_degen + '&caster_allowance=' + caster_allowance + '&caster_rank=' + caster_rank + '&my_degen=' + my_degen + '&my_allowance=' + my_allowance + '&my_rank=' + my_rank;
+        const frame_url = FRAME_URL + '?caster_degen=' + caster_degen + '&caster_allowance=' + caster_allowance + '&caster_rank=' + caster_rank + '&caster_name=' + caster_name + '&my_degen=' + my_degen + '&my_allowance=' + my_allowance + '&my_rank=' + my_rank + '&my_name=' + my_name;
 
         const data = {
             "type": "frame",
