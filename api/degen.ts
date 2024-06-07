@@ -39,7 +39,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         await axios
             .get(caster_query_url)
             .then((response) => {
-                console.log(response.data);
+                //console.log(response.data);
                 const dat = response.data['allowance'];
                 caster_degen = String(dat['remaining_allowance']);
                 caster_allowance = String(dat['tip_allowance']);
@@ -60,7 +60,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         await axios
         .get(my_query_url)
         .then((response) => {
-            console.log(response.data);
+            //console.log(response.data);
             const dat = response.data['allowance'];
             my_degen = String(dat['remaining_allowance']);
             my_allowance = String(dat['tip_allowance']);
@@ -78,6 +78,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             "type": "frame",
             "frameUrl": frame_url
         }
+
+        console.log(data);
     
         return res.json(data);
     }
