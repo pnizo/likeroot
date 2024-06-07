@@ -81,7 +81,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         // }
         const data = {
             type: "message",
-            message: `${caster_name}: ${caster_degen}/${caster_allowance} | ${my_name}: ${my_degen}/${my_allowance}`,
+            message: `${caster_name}: ${caster_degen}/${caster_allowance}\n${my_name}: ${my_degen}/${my_allowance}`,
         }
 
         console.log(data);
