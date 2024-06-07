@@ -76,7 +76,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
         const data = {
             "type": "frame",
-            "frameUrl": frame_url
+            "frame_url": encodeURI(frame_url)
         }
 
         console.log(data);
