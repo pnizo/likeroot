@@ -2,7 +2,7 @@ import type { VercelRequest, VercelResponse } from '@vercel/node'
 
 const ADD_URL = "https://warpcast.com/~/add-cast-action?url=https%3A%2F%2Flikeroot-git-main-pnizos-projects.vercel.app%2Fapi%2Fdegen";
 const ENDPOINT = "https://www.degentip.me/api/get_allowance?fid=";
-const FRAME_URL = "https://degen-smoky.vercel.app/frame";
+const FRAME_URL = "https://degen-smoky.vercel.app/";
 
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
