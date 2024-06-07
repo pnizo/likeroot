@@ -75,8 +75,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         const frame_url = FRAME_URL + '?caster_degen=' + caster_degen + '&caster_allowance=' + caster_allowance + '&caster_rank=' + caster_rank + '&caster_name=' + caster_name + '&my_degen=' + my_degen + '&my_allowance=' + my_allowance + '&my_rank=' + my_rank + '&my_name=' + my_name;
 
         const data = {
-            "type": "frame",
-            "frame_url": encodeURI(frame_url)
+            type: "frame",
+            frameUrl: encodeURI(frame_url)
         }
 
         console.log(data);
