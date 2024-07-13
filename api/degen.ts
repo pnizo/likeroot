@@ -30,16 +30,14 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
         const caster_query_url = ENDPOINT + caster_fid;
 
-        let caster_degen = '-1';
-        let caster_allowance = '-1';
+        let caster_str = 'N/A';
 
         await axios
             .get(caster_query_url)
             .then((response) => {
                 //console.log(response.data);
                 const dat = response.data['allowance'];
-                caster_degen = String(dat['remaining_tip_allowance']);
-                caster_allowance = String(dat['tip_allowance']);
+                caster_str = String(dat['remaining_tip_allowance']) + '/' + String(dat['tip_allowance']);
             })
             .catch((err) => {
                 console.log(err);
@@ -47,16 +45,14 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             });
 
         const my_query_url = ENDPOINT + my_fid;
-        let my_degen = '-1';
-        let my_allowance = '-1';
+        let my_str = 'N/A';
 
         await axios
         .get(my_query_url)
         .then((response) => {
             //console.log(response.data);
             const dat = response.data['allowance'];
-            my_degen = String(dat['remaining_tip_allowance']);
-            my_allowance = String(dat['tip_allowance']);
+            my_str = String(dat['remaining_tip_allowance']) + '/' + String(dat['tip_allowance']);
         })
         .catch((err) => {
             console.log(err);
@@ -72,10 +68,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         // }
         const data = {
             type: "message",
-            message: `Caster: ${caster_degen}/${caster_allowance} 🎩 You: ${my_degen}/${my_allowance}`,
+            message: `Caster: ${caster_str} 🎩 You: ${my_str}`,
         }
 
-        console.log(data);
+        console.log(data.message);
     
         return res.json(data);
     }
