@@ -43,7 +43,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             })
             .catch((err) => {
                 console.log(err);
-                return res.json({message: 'error: something went wrong'});
+                //return res.json({message: 'error: something went wrong'});
             });
 
         const my_query_url = ENDPOINT + my_fid;
@@ -60,7 +60,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         })
         .catch((err) => {
             console.log(err);
-            return res.json({message: 'error: something went wrong'});
+            //return res.json({message: 'error: something went wrong'});
         });    
 
         // const frame_url = FRAME_URL + '?caster_degen=' + caster_degen + '&caster_allowance=' + caster_allowance + '&caster_rank=' + caster_rank + '&caster_name=' + caster_name + '&my_degen=' + my_degen + '&my_allowance=' + my_allowance + '&my_rank=' + my_rank + '&my_name=' + my_name;
