@@ -32,19 +32,14 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
         let caster_degen = '-1';
         let caster_allowance = '-1';
-        let caster_rank = '-1';
-        let caster_name = 'N/A';
-
 
         await axios
             .get(caster_query_url)
             .then((response) => {
                 //console.log(response.data);
                 const dat = response.data['allowance'];
-                caster_degen = String(dat['remaining_allowance']);
+                caster_degen = String(dat['remaining_tip_allowance']);
                 caster_allowance = String(dat['tip_allowance']);
-                caster_rank = String(dat['user_rank']);
-                caster_name = dat['display_name'];
             })
             .catch((err) => {
                 console.log(err);
@@ -54,18 +49,14 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         const my_query_url = ENDPOINT + my_fid;
         let my_degen = '-1';
         let my_allowance = '-1';
-        let my_rank = '-1';
-        let my_name = 'N/A';
 
         await axios
         .get(my_query_url)
         .then((response) => {
             //console.log(response.data);
             const dat = response.data['allowance'];
-            my_degen = String(dat['remaining_allowance']);
+            my_degen = String(dat['remaining_tip_allowance']);
             my_allowance = String(dat['tip_allowance']);
-            my_rank = String(dat['user_rank']);
-            my_name = dat['display_name'];
         })
         .catch((err) => {
             console.log(err);
@@ -81,7 +72,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         // }
         const data = {
             type: "message",
-            message: `${caster_name}: ${caster_degen}/${caster_allowance}\n${my_name}: ${my_degen}/${my_allowance}`,
+            message: `Caster: ${caster_degen}/${caster_allowance} 🎩 You: ${my_degen}/${my_allowance}`,
         }
 
         console.log(data);
