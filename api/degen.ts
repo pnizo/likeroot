@@ -37,7 +37,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             .then((response) => {
                 //console.log(response.data);
                 const dat = response.data['allowance'];
-                caster_str = String(dat['remaining_tip_allowance']) + '/' + String(dat['tip_allowance']);
+                caster_str = String(dat['remaining_allowance']) + '/' + String(dat['tip_allowance']);
             })
             .catch((err) => {
                 console.log(err);
@@ -52,7 +52,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         .then((response) => {
             //console.log(response.data);
             const dat = response.data['allowance'];
-            my_str = String(dat['remaining_tip_allowance']) + '/' + String(dat['tip_allowance']);
+            my_str = String(dat['remaining_allowance']) + '/' + String(dat['tip_allowance']);
         })
         .catch((err) => {
             console.log(err);
